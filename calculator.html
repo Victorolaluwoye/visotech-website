@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visotech | Reliable Energy, Sustainable Tomorrow</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/all.min.css">
+
+    <link rel="stylesheet"  href="css/aos.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <!-- Preloader -->
+
+<div id="preloader">
+
+    <img src="images/Viso logo.png" alt="Visotech Logo">
+
+    <div class="loader"></div>
+
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+
+        <a class="navbar-brand" href="index.html">
+    <img src="images/Viso logo.png" alt="Visotech Logo">
+</a>
+
+        <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menu">
+
+            <ul class="navbar-nav ms-auto">
+
+                <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+
+                <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+
+                <li class="nav-item">
+    <a class="nav-link active" href="calculator.html">Calculator</a>
+</li>
+
+                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+
+            </ul>
+
+            <button id="theme-toggle" class="btn btn ms-3">
+    <i class="fas fa-moon"></i>
+</button>
+
+        </div>
+
+</div>
+
+    </div>
+</nav>
+
+<!-- Hero Section -->
+
+<header class="gallery-header text-center py-5">
+    <div class="container">
+        <h1 class="display-4 fw-bold">
+            Solar Load Calculator
+        </h1>
+
+        <p class="lead">
+            Estimate the solar system size you may need for your home or business.
+        </p>
+    </div>
+</header>
+
+<section class="py-5">
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="card shadow border-0 p-4">
+
+                    <h3 class="text-center mb-4">
+                        Solar Load Calculator
+                    </h3>
+
+                    <div class="row">
+
+                        <div class="col-md-6 mb-3">
+                            <label>LED Bulbs</label>
+                            <input type="number" id="bulbs" class="form-control" value="0" min="0">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Fans</label>
+                            <input type="number" id="fans" class="form-control" value="0" min="0">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Televisions</label>
+                            <input type="number" id="tvs" class="form-control" value="0" min="0">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Refrigerators</label>
+                            <input type="number" id="fridges" class="form-control" value="0" min="0">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Laptops</label>
+                            <input type="number" id="laptops" class="form-control" value="0" min="0">
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label>Air Conditioners</label>
+                            <input type="number" id="acs" class="form-control" value="0" min="0">
+                        </div>
+
+                    </div>
+
+                    <div class="text-center mt-4">
+
+                        <button class="btn btn-warning btn-lg" onclick="calculateLoad()">
+                            Calculate
+                        </button>
+
+                    </div>
+
+                    <div id="resultCard" class="card mt-5 border-0 shadow-lg p-4" style="display:none;">
+
+    <h3 class="text-center text-warning mb-4">
+        Calculation Result
+    </h3>
+
+    <div class="row text-center">
+
+        <div class="col-md-3 mb-3">
+            <i class="fas fa-bolt fa-2x text-warning"></i>
+            <h6 class="mt-2">Total Load</h6>
+            <p id="loadResult"></p>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <i class="fas fa-car-battery fa-2x text-warning"></i>
+            <h6 class="mt-2">Inverter</h6>
+            <p id="inverterResult"></p>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <i class="fas fa-solar-panel fa-2x text-warning"></i>
+            <h6 class="mt-2">Solar Panels</h6>
+            <p id="panelResult"></p>
+        </div>
+
+        <div class="col-md-3 mb-3">
+            <i class="fas fa-battery-full fa-2x text-warning"></i>
+            <h6 class="mt-2">Battery</h6>
+            <p id="batteryResult"></p>
+        </div>
+
+    </div>
+
+    <div class="text-center mt-4">
+
+<div class="alert alert-success mt-4">
+
+    <button onclick="downloadReport()" class="btn btn-success btn-lg me-3">
+        <i class="fas fa-file-pdf"></i> Download Report
+    </button>
+
+    <h5 class="fw-bold">
+        <i class="fas fa-lightbulb text-warning"></i>
+        Recommendation
+    </h5>
+
+    <p id="recommendation" class="mb-0"></p>
+
+</div>
+
+        <a href="index.html#contact" class="btn btn-warning btn-lg">
+            Request a Free Quote
+        </a>
+    </div>
+
+</div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+
+<footer class="bg-dark text-white pt-5 pb-3">
+
+    <div class="container">
+
+        <div class="row">
+
+            <!-- Company -->
+
+            <div class="col-lg-4 mb-4">
+
+                <img src="images/Viso logo.png" alt="Visotech Logo" height="70">
+
+                <p class="mt-3">
+                    Visotech delivers reliable solar energy solutions for homes,
+                    businesses and industries across Nigeria.
+                </p>
+
+            </div>
+
+            <!-- Quick Links -->
+
+            <div class="col-lg-2 mb-4">
+
+                <h5>Quick Links</h5>
+
+                <ul class="list-unstyled">
+
+                    <li><a href="#" class="footer-link">Home</a></li>
+                    <li><a href="#about" class="footer-link">About</a></li>
+                    <li><a href="#services" class="footer-link">Services</a></li>
+                    <li><a href="#products" class="footer-link">Products</a></li>
+                    <li><a href="#contact" class="footer-link">Contact</a></li>
+
+                </ul>
+
+            </div>
+
+            <!-- Services -->
+
+            <div class="col-lg-3 mb-4">
+
+                <h5>Our Services</h5>
+
+                <ul class="list-unstyled">
+
+                    <li>Solar Installation</li>
+                    <li>Inverter Installation</li>
+                    <li>Lithium Batteries</li>
+                    <li>Solar Street Lights</li>
+                    <li>Maintenance & Repairs</li>
+
+                </ul>
+
+            </div>
+
+            <!-- Contact -->
+
+            <div class="col-lg-3 mb-4">
+
+                <h5>Contact</h5>
+
+                <p>
+                    <i class="fa-solid fa-phone"></i>
+                    +234 708 831 9124
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    visotechsolutions@gmail.com
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>
+                    25A Makinde Street, Kola Bus Stop, Alagbado, Lagos State, Nigeria
+                </p>
+
+                <div class="mt-3">
+
+                    <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+
+                    <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+
+                    <a href="https://wa.me/2348140899419" class="social-icon">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="text-center">
+
+            <p class="mb-0">
+                © 2026 Visotech Technologies. All Rights Reserved.
+                <br>
+                <strong>Reliable Energy. Sustainable Tomorrow.</strong>
+            </p>
+
+        </div>
+
+    </div>
+
+</footer>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+
+<script src="js/aos.js"></script>
+
+<script>
+AOS.init({
+    duration:1000,
+    once:true
+});
+</script>
+
+<script src="js/script.js"></script>
+
+<button id="topBtn">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+
+<!-- Floating Quote Button -->
+
+<a href="#contact" class="quote-btn">
+    <i class="fas fa-file-invoice-dollar"></i>
+    <span>Free Quote</span>
+</a>
+
+
+<script>
+function calculateLoad(){
+
+    const bulbs = Number(document.getElementById("bulbs").value);
+    const fans = Number(document.getElementById("fans").value);
+    const tvs = Number(document.getElementById("tvs").value);
+    const fridges = Number(document.getElementById("fridges").value);
+    const laptops = Number(document.getElementById("laptops").value);
+    const acs = Number(document.getElementById("acs").value);
+
+    // Estimated power ratings (Watts)
+    const total =
+        (bulbs * 10) +
+        (fans * 75) +
+        (tvs * 120) +
+        (fridges * 200) +
+        (laptops * 65) +
+        (acs * 1500);
+
+    let inverter = "";
+    let panels = "";
+    let battery = "";
+
+    if(total <= 1000){
+        inverter = "1.5kVA Inverter";
+        panels = "2 × 550W Solar Panels";
+        battery = "1 × 5kWh Lithium Battery";
+    }
+    else if(total <= 2500){
+        inverter = "3.5kVA Inverter";
+        panels = "4 × 550W Solar Panels";
+        battery = "2 × 5kWh Lithium Batteries";
+    }
+    else if(total <= 5000){
+        inverter = "5kVA Inverter";
+        panels = "8 × 550W Solar Panels";
+        battery = "2 × 10kWh Lithium Batteries";
+    }
+    else{
+        inverter = "10kVA or Higher";
+        panels = "12+ × 550W Solar Panels";
+        battery = "Custom Battery Bank";
+    }
+
+   document.getElementById("resultCard").style.display = "block";
+
+document.getElementById("loadResult").innerHTML = total + " Watts";
+
+document.getElementById("inverterResult").innerHTML = inverter;
+
+document.getElementById("panelResult").innerHTML = panels;
+
+document.getElementById("batteryResult").innerHTML = battery;
+
+let advice = "";
+
+if(total <= 1000){
+    advice = "Perfect for a small apartment or office.";
+}
+else if(total <= 2500){
+    advice = "Ideal for a medium-sized home with essential appliances.";
+}
+else if(total <= 5000){
+    advice = "Suitable for a large family home or small business.";
+}
+else{
+    advice = "This is a high-load installation. We recommend a professional site assessment by Visotech.";
+}
+
+document.getElementById("recommendation").innerHTML = advice;
+
+}
+
+function downloadReport(){
+    window.print();
+}
+
+</script>
+
+</body>
+</html>
