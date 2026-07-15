@@ -609,7 +609,7 @@
 
 <!-- Testimonials -->
 
-<section is="testimonials" class="py-5 bg-light" data-aos="fade-up">
+<section id="testimonials" class="py-5 bg-light" data-aos="fade-up">
 
     <div class="container">
 
@@ -991,6 +991,9 @@
             <div class="col-lg-7">
 
                 <form action="https://api.web3forms.com/submit" method="POST">
+                    <form id="contactForm"
+      action="https://api.web3forms.com/submit"
+      method="POST">
 
     <!-- Your Web3Forms Access Key -->
     <input type="hidden" name="access_key" value="9755884e-614e-4bb8-a669-60a801b51e3c">
@@ -1206,45 +1209,6 @@ AOS.init({
     <i class="fas fa-file-invoice-dollar"></i>
     <span>Free Quote</span>
 </a>
-
-<script>
-const lightbox = GLightbox({
-    touchNavigation: true,
-    loop: true,
-    zoomable: true
-});
-</script>
-
-<script>
-emailjs.init({
-    publicKey: "1QsBKly5aKe0UgHw0",
-});
-
-document.getElementById("contactForm").addEventListener("submit", function(event){
-
-    event.preventDefault();
-
-    emailjs.sendForm(
-    "service_nojecxn",
-    "template_rqbkclf",
-    this,
-    "1QsBKly5aKe0UgHw0"
-)
-.then(function(response){
-
-    console.log("SUCCESS:", response);
-    alert("SUCCESS: " + JSON.stringify(response));
-
-    document.getElementById("contactForm").reset();
-
-})
-.catch(function(error){
-
-    console.log("ERROR:", error);
-    alert("ERROR: " + JSON.stringify(error));
-
-});
-</script>
 
 </body>
 </html>
