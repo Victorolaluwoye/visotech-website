@@ -25,7 +25,7 @@
 
 </div>
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
     <div class="container">
 
         <a class="navbar-brand" href="index.html">
@@ -40,21 +40,21 @@
 
             <ul class="navbar-nav ms-auto">
 
-                <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" href="index.html#home">Home</a></li>
 
-                <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#about">About</a></li>
 
-                <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#services">Services</a></li>
 
-                <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#projects">Projects</a></li>
 
-                <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
 
                 <li class="nav-item">
     <a class="nav-link active" href="calculator.html">Calculator</a>
 </li>
 
-                <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
 
             </ul>
 
@@ -189,9 +189,13 @@
 
 </div>
 
-        <a href="index.html#contact" class="btn btn-warning btn-lg">
-            Request a Free Quote
-        </a>
+        <a id="quoteBtn"
+   href="#"
+   class="btn btn-success btn-lg"
+   target="_blank">
+    <i class="fab fa-whatsapp"></i>
+    Request Quote on WhatsApp
+</a>
     </div>
 
 </div>
@@ -413,10 +417,26 @@ else{
 
 document.getElementById("recommendation").innerHTML = advice;
 
-}
+// ADD THE NEW CODE BELOW THIS LINE
 
-function downloadReport(){
-    window.print();
+const message =
+`Hello Visotech,
+
+I used your Solar Load Calculator.
+
+Estimated Load: ${total} Watts
+Recommended Inverter: ${inverter}
+Recommended Solar Panels: ${panels}
+Recommended Battery: ${battery}
+
+Recommendation:
+${advice}
+
+I would like to request a quotation and schedule a site inspection.`;
+
+document.getElementById("quoteBtn").href =
+"https://wa.me/2347088319124?text=" + encodeURIComponent(message);
+
 }
 
 </script>
