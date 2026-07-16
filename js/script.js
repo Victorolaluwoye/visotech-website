@@ -90,9 +90,11 @@ window.addEventListener("scroll", () => {
 
         link.classList.remove("active");
 
-        if (link.getAttribute("href") === "#" + current) {
-            link.classList.add("active");
-        }
+        const href = link.getAttribute("href");
+
+if (href.startsWith("#") && href === "#" + current) {
+    link.classList.add("active");
+}
 
     });
 
